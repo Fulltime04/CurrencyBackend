@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -14,7 +15,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "fallback-secret")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
 
-ALLOWED_HOSTS = []
+
 
 # Application definition
 INSTALLED_APPS = [
@@ -43,7 +44,7 @@ MIDDLEWARE = [
     # ...
 ]
 
-ROOT_URLCONF = 'backend.urls'
+ROOT_URLCONF = 'CurrencyBackend.urls'
 
 TEMPLATES = [
     {
@@ -61,14 +62,15 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'backend.wsgi.application'
+WSGI_APPLICATION = 'CurrencyBackend.wsgi.application'
 
 # Database
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    "default": dj_database_url.config(
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}",
+        conn_max_age=600,
+    )
 }
 
 CORS_ALLOWED_ORIGINS = [
@@ -99,4 +101,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # ✅ Add your API keys
 API_KEY1 = os.getenv("API_KEY1")
 API_KEY2 = os.getenv("API_KEY2")
+
+ALLOWED_HOSTS = ["*",]
+
+
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
