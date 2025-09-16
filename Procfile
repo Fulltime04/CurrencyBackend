@@ -1,1 +1,1 @@
-web: gunicorn CurrencyBackend.wsgi
+web: gunicorn CurrencyBackend.wsgi:application
