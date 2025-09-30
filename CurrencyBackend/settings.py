@@ -106,5 +106,10 @@ API_KEY2 = os.getenv("API_KEY2")
 
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "currencybackend-1.onrender.com",  # your live Render URL
+    "currencybackend-fete.onrender.com",  # old Render URL (if still needed)
+    "localhost",
+    "127.0.0.1",
+]
 
