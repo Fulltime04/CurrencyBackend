@@ -102,10 +102,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 API_KEY1 = os.getenv("API_KEY1")
 API_KEY2 = os.getenv("API_KEY2")
 
-ALLOWED_HOSTS = ["*"]
 
 
 
 STATIC_ROOT = BASE_DIR / "staticfiles"
-ALLOWED_HOSTS = ["currencybackend-fete.onrender.com", "localhost", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
