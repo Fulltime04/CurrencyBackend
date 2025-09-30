@@ -102,6 +102,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 API_KEY1 = os.getenv("API_KEY1")
 API_KEY2 = os.getenv("API_KEY2")
 
+ALLOWED_HOSTS = ["*"]
 
 
 
